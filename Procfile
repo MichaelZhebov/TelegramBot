@@ -1,1 +1,1 @@
-web: sh target/bin/telega
+web: sh target/bin/telegrambot
