@@ -1,1 +1,1 @@
-web: sh target/bin/name
+web: sh target/bin/telega
