@@ -67,7 +67,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>com.telega.bot.Main</mainClass> //тут пишем свой main class
+                            <mainClass>com.telega.bot.Main</mainClass>
                             <name>name</name>
                         </program>
                     </programs>
