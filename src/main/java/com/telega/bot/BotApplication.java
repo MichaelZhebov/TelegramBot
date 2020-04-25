@@ -38,7 +38,7 @@ public class BotApplication extends TelegramLongPollingBot {
                 ) {
                     if (entry.getValue()) {
                         if (entry.getKey().equals("DELETE")) {
-                            actionsMap.put("DELETE", false);
+                            resetMap();
                             long id = Long.parseLong(update.getMessage().getText());
                             message.append(deleteEmployees(id) ? "Deleted" : "Error. Please try again");
                             try {
@@ -49,7 +49,7 @@ public class BotApplication extends TelegramLongPollingBot {
                             }
                         }
                         if (entry.getKey().equals("ADD NEW")) {
-                            actionsMap.put("ADD NEW", false);
+                            resetMap();
                             Employee employee = new Employee();
                             String[] employeeFields = update.getMessage().getText().split(" ");
                             employee.setFirstName(employeeFields[0]);
@@ -64,7 +64,7 @@ public class BotApplication extends TelegramLongPollingBot {
                             }
                         }
                         if (entry.getKey().equals("UPDATE")) {
-                            actionsMap.put("UPDATE", false);
+                            resetMap();
                             Employee employee = new Employee();
                             String[] employeeFields = update.getMessage().getText().split(" ");
                             employee.setId(Long.parseLong(employeeFields[0]));
@@ -190,5 +190,11 @@ public class BotApplication extends TelegramLongPollingBot {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private void resetMap() {
+        actionsMap.put("DELETE", false);
+        actionsMap.put("UPDATE", false);
+        actionsMap.put("ADD NEW", false);
     }
 }
